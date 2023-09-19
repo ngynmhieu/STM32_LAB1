@@ -170,7 +170,7 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
-  /* USER CODE END 2 */
+  /* USER CODE  2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
