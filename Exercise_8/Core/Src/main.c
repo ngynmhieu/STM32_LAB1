@@ -166,7 +166,7 @@ int main(void)
 
   /* USER CODE END SysInit */
 
-  /* Initialize all configured peripherals */
+  /* Initialize all  peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
