@@ -210,7 +210,7 @@ int main(void)
 
 
 	   sec ++;
-	   HAL_Delay (10);
+	   HAL_Delay (1000);
       /* USER CODE BEGIN 3 */
     }
   /* USER CODE END 3 */
