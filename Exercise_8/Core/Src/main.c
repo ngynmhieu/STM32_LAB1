@@ -175,7 +175,7 @@ int main(void)
   /* USER CODE END 2 */
 
   /* Infinite  */
-  /* USER CODE  WHILE */
+  /* USER CODE   */
   clearAllClock();
   int hour= 0, min = 0, sec= 0;
 
