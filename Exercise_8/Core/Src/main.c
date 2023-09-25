@@ -175,42 +175,43 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   clearAllClock();
-  int hour= 0, min = 0, sec= -1; // sec = -1 because we want after the 1st second, the second hand point to 1
-  int round = 0 ; // show the program that sec or min have currently finished a round
+  int hour= 0, min = 0, sec= 0;
+
    while (1)
    {
-	   sec++;
-	   if (sec-1 != hour && sec - 1 != min){ // check whether the current position of sec isn't hour or min to clear it
-		   clearNumberOnClock(sec-1);
-	   }
-	   if (sec >= 12){ // if sec number is over 12
-		   sec %=12;
-		   round = 1;
-	   }
-	   setNumberOnClock(sec);
-	   if (round ==1){ // when sec's just finished a round
-		   min ++; round = 0 ; // increase min 1 unit
-		   if (min -1 != hour && min -1 != sec){
-			   clearNumberOnClock(min -1);
+	   if (sec % 5 == 0){
+		   if ((sec/5 - 1) != min/5 && (sec/5 -1) != hour) // clear the last place of sec
+		   {
+			   clearNumberOnClock(sec/5 -1);
 		   }
-		   if (min >=12){
-			   min%=12; round = 1;
-		   }
-		   setNumberOnClock(min);
-		   if (round ==1){ // when min's just finished a round
-			   hour ++; round = 0 ; // increase hour 1 unit
-			   if (hour -1 != min && hour -1 != sec){
-				   clearNumberOnClock(hour -1);
+		   if (sec == 60){
+			   min ++;
+			   if (min % 5 == 0){
+				   if ((min/5 - 1) != 0 && (min/5 -1) != hour){
+					   clearNumberOnClock(min/5 -1 );
+				   }
+				   if (min == 60){
+					   hour ++;
+					   if (hour -1 != 0) clearNumberOnClock(hour -1);
+					   hour = hour %12;
+					   min = 0;
+				   }
 			   }
-			   if (hour >=12 ) {
-				   hour %=12;
-			   }
-			   setNumberOnClock(hour);
+			   sec =0 ;
 		   }
 	   }
-	   HAL_Delay (1000);
+	   setNumberOnClock(sec/5);
+	   setNumberOnClock(min/5);
+	   setNumberOnClock(hour);
+
+
+
+
+	   sec ++;
+	   HAL_Delay (10);
       /* USER CODE BEGIN 3 */
     }
+  /* USER CODE END 3 */
   /* USER CODE END 3 */
 }
 
